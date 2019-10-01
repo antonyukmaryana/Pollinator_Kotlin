@@ -8,7 +8,6 @@
 
 ## Description
 
-_A web application for a  which allows_
 ![Screenshot](diagram.png)
 ## Specifications
 
