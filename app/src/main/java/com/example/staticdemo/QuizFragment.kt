@@ -25,6 +25,10 @@ class QuizFragment : Fragment() {
             .setOnClickListener { v ->
                 v.findNavController().navigate(R.id.action_quizFragment_to_takeFragment)
             }
+        view.findViewById<Button>(R.id.createQuizButton)
+            .setOnClickListener { v ->
+                v.findNavController().navigate(R.id.action_quizFragment_to_createFragment)
+            }
         return view
     }
 

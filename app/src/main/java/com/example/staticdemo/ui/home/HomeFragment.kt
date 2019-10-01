@@ -32,6 +32,11 @@ class HomeFragment : Fragment() {
         loginButton.setOnClickListener { v ->
             v.findNavController().navigate(R.id.action_navigation_home_to_loginFragment)
         }
+
+        val registerButton: Button = root.findViewById(R.id.registerButton)
+        registerButton.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_navigation_home_to_registerFragment)
+        }
         return root
     }
 }
