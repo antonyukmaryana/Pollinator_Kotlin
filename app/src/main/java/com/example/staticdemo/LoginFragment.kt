@@ -9,7 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.navigation.findNavController
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Response
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,10 +37,39 @@ class LoginFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         view.findViewById<Button>(R.id.executeLoginButton).setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_loginFragment_to_quizFragment)
+
+            val userEmail = view.findViewById<EditText>(R.id.emailText).text.toString()
+            val passwordStr = view.findViewById<EditText>(R.id.passwordText).text.toString()
+
+            AccountDataSource.login(userEmail, passwordStr,
+                object : Callback {
+                    override fun onFailure(call: Call, e: IOException) {
+                        showError()
+                    }
+
+                    override fun onResponse(call: Call, response: Response) {
+                        showSuccess(response.body()?.string()!!);
+                    }
+
+                })
+//
         }
         return view
+    }
 
+    fun showSuccess(text: String) {
+        activity?.runOnUiThread {
+            Toast.makeText(context, "Response = " + text, Toast.LENGTH_LONG).show()
+            if (text.equals("Success")) {
+                view?.findNavController()?.navigate(R.id.action_loginFragment_to_quizFragment)
+            }
+        }
+    }
+
+    fun showError() {
+        activity?.runOnUiThread {
+            Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
+        }
     }
 
 }

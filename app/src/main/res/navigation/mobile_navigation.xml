@@ -55,7 +55,7 @@
         tools:layout="@layout/fragment_take" />
     <fragment
         android:id="@+id/createFragment"
-        android:name="com.example.staticdemo.createFragment"
+        android:name="com.example.staticdemo.CreateFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_create" />
 </navigation>
