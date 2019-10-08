@@ -1,4 +1,4 @@
-package com.example.staticdemo
+package com.example.staticdemo.data
 
 import com.squareup.moshi.JsonClass
 

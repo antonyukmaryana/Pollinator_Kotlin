@@ -1,7 +1,5 @@
 package com.example.staticdemo
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.findNavController
+import com.example.staticdemo.data.DataSource
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
@@ -41,7 +40,7 @@ class LoginFragment : Fragment() {
             val userEmail = view.findViewById<EditText>(R.id.emailText).text.toString()
             val passwordStr = view.findViewById<EditText>(R.id.passwordText).text.toString()
 
-            AccountDataSource.login(userEmail, passwordStr,
+            DataSource.login(userEmail, passwordStr,
                 object : Callback {
                     override fun onFailure(call: Call, e: IOException) {
                         showError()

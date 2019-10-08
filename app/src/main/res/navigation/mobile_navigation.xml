@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/takeFragment"
-        android:name="com.example.staticdemo.takeFragment"
+        android:name="com.example.staticdemo.TakeFragment"
         android:label="fragment_take"
         tools:layout="@layout/fragment_take" />
     <fragment

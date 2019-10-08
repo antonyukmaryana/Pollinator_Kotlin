@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.findNavController
+import com.example.staticdemo.data.DataSource
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
@@ -31,7 +32,7 @@ class RegisterFragment : Fragment() {
             val userEmail = view.findViewById<EditText>(R.id.userEmail).text.toString()
             val passwordStr = view.findViewById<EditText>(R.id.password).text.toString()
             val confirmPassword = view.findViewById<EditText>(R.id.confirmPassword).text.toString()
-            AccountDataSource.register(userEmail, passwordStr, confirmPassword,
+            DataSource.register(userEmail, passwordStr, confirmPassword,
                 object : Callback {
                     override fun onFailure(call: Call, e: IOException) {
                         showError()
