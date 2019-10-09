@@ -57,5 +57,9 @@
         android:id="@+id/createFragment"
         android:name="com.example.staticdemo.CreateFragment"
         android:label="fragment_create"
-        tools:layout="@layout/fragment_create" />
+        tools:layout="@layout/fragment_create" >
+        <action
+            android:id="@+id/action_createFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
 </navigation>
